@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FirestoreMaui.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:m="clr-namespace:FirestoreMaui.Models"
+    xmlns:vm="clr-namespace:FirestoreMaui.ViewModels"
+    x:DataType="vm:SampleVM">
+
+    <Grid RowDefinitions="*,200">
+        <CollectionView ItemsSource="{Binding SampleData}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="m:SampleModel">
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            Text="{Binding Name}" />
+                        <Label
+                            Grid.Row="1"
+                            FontAttributes="Italic"
+                            FontSize="Medium"
+                            Text="{Binding CreatedAt.Date, StringFormat='Created at: {0}'}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <VerticalStackLayout
+            Grid.Row="1"
+            Padding="30,0"
+            Spacing="25">
+            <Button
+                Command="{Binding SaveSampleDataCommand}"
+                HorizontalOptions="Fill"
+                Text="Insert Data" />
+            <Button
+                Command="{Binding GetSampleDataCommand}"
+                HorizontalOptions="Fill"
+                Text="Get Data" />
+        </VerticalStackLayout>
+    </Grid>
+
+
+</ContentPage>
