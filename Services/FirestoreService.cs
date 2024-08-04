@@ -25,7 +25,7 @@ namespace FirestoreMaui.Services
 
                     ConverterRegistry = new ConverterRegistry
                     {
-                        //new DateTimeToTimestampConverter(),
+                        new DateTimeToTimestampConverter(),
                     },
                     JsonCredentials = contents
                 }.Build();

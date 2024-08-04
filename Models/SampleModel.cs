@@ -16,7 +16,8 @@ namespace FirestoreMaui.Models
         public string Name { get; set; }
         [FirestoreProperty]
         public string Description { get; set; }
-        [FirestoreProperty(ConverterType = typeof(DateTimeToTimestampConverter))]
+        //[FirestoreProperty(ConverterType = typeof(DateTimeToTimestampConverter))]
+        [FirestoreProperty]
         public DateTime CreatedAt { get; set; }
     }
 
